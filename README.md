@@ -9,5 +9,12 @@ Le but de cette application web et de retrouvé sur une seule plateforme tous le
 * JavaScript
 * CSS
 
-## Maquette
-* Figma
+## Design
+
+Pour le design j'utilise [Figma](https://www.figma.com) car c'est l'outil le plus simple à utiliser pour collaborer rapidement.
+
+- [Maquettes Figma](https://www.figma.com/file/1yUqOtIAIKdbkk3TVYuYIq/TPIeMediation)
+
+## Etat d'avancement
+
+L'avancement peut être suivi sur la [board trello de grafikart](https://trello.com/b/UiGTr9RY)
