@@ -2,6 +2,8 @@
 ## Présentation
 Cette plateforme est crée dans le cadre du projet de fin d'apprentissage d'Antoine Quarroz. (TPI)   
 Le but de cette application web et de retrouvé sur une seule plateforme tous les contenus multimédias crées et produites par la Médiathèque Valais - Sion
+<img src="https://pbs.twimg.com/profile_images/834321646932656129/a3Jxex5e_200x200.jpg" />
+
 
 ## Technos
 * [Symfony](https://symfony.com/)
@@ -18,3 +20,7 @@ Pour le design j'utilise [Figma](https://www.figma.com) car c'est l'outil le plu
 ## Etat d'avancement
 
 L'avancement peut être suivi sur la [board trello du projet](https://trello.com/b/UiGTr9RY)
+
+## License
+
+See [LICENSE](LICENSE.txt)
