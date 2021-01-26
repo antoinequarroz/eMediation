@@ -1,13 +1,13 @@
 # eMediation
 ## Présentation
-Cette plateforme est crée dans le cadre du projet de fin d'apprentissage d'Antoine Quarroz.
+Cette plateforme est crée dans le cadre du projet de fin d'apprentissage d'Antoine Quarroz. (TPI)   
 Le but de cette application web et de retrouvé sur une seule plateforme tous les contenus multimédias crées et produites par la Médiathèque Valais - Sion
 
 ## Technos
-* Symfony
-* Twig
-* JavaScript
-* CSS
+* [Symfony](https://symfony.com/)
+* [Twig](https://twig.symfony.com/)
+* [JavaScript](https://developer.mozilla.org/fr/docs/Web/JavaScript)
+* [CSS](https://developer.mozilla.org/fr/docs/Web/CSS)
 
 ## Design
 
