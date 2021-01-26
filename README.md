@@ -24,4 +24,4 @@ L'avancement peut être suivi sur la [board trello du projet](https://trello.com
 
 ## License
 
-See [LICENSE](LICENSE)
+Voir [LICENSE](LICENSE)
