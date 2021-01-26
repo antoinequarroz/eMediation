@@ -17,4 +17,4 @@ Pour le design j'utilise [Figma](https://www.figma.com) car c'est l'outil le plu
 
 ## Etat d'avancement
 
-L'avancement peut être suivi sur la [board trello de grafikart](https://trello.com/b/UiGTr9RY)
+L'avancement peut être suivi sur la [board trello du projet](https://trello.com/b/UiGTr9RY)
