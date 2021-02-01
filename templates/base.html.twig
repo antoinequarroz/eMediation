@@ -2,12 +2,22 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}eMédiation{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="./vendors/styleguide/css/vendors.min.css">
+            <link rel="stylesheet" href="./vendors/styleguide/css/base.css">
+        {% endblock %}
 
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+            <script src="./vendors/styleguide/js/vendors.min.js"></script>
+            <script src="./vendors/styleguide/js/vendors.bundle.js"></script>
+            <script src="./vendors/styleguide/js/app.bundle.js"></script>
+        {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block content %}
+
+        {% endblock %}
     </body>
 </html>
