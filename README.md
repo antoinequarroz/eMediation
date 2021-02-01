@@ -18,10 +18,6 @@ Pour le design j'utilise [Figma](https://www.figma.com) car c'est l'outil le plu
 
 - [Maquettes Figma](https://www.figma.com/file/1yUqOtIAIKdbkk3TVYuYIq/TPIeMediation)
 
-## Etat d'avancement
-
-L'avancement peut être suivi sur la [board trello du projet](https://trello.com/b/UiGTr9RY)
-
 ## License
 
 Voir [LICENSE](LICENSE)
