@@ -54,11 +54,14 @@
                 </ul>
             </div>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-14 mr-auto">
+                <ul class="navbar-nav ml-10 mr-auto">
                     {% if app.user %}
                         <li class="nav-item align-items-end">
-                            <a class="nav-link text-white" href="{{ path('account') }}">Mon compte</a>
+                            <a class="nav-link text-white" href="{{ path('account') }}">Compte</a>
                         </li>
+                    <li class="nav-item align-items-end">
+                        <a class="nav-link text-white" href="{{ path('app_logout') }}">Déconnexion</a>
+                    </li>
                     {% endif %}
                 </ul>
             </div>
