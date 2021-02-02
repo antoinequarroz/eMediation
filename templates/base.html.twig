@@ -4,10 +4,12 @@
         <meta charset="UTF-8">
         <title>{% block title %}eMédiation{% endblock %}</title>
         <link href="{{ asset('assets/css/theme.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
-        <link rel="stylesheet" href="https://unpkg.com/@valais-media-library/mv-styleguide@1.0.0/css/base.css">
-        <link rel="stylesheet" href="ttps://unpkg.com/@valais-media-library/mv-styleguide@1.0.0/css/vendors.min.css">
-        <link rel="stylesheet" href="https://unpkg.com/@valais-media-library/mv-styleguide@1.0.0/css/base.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet"/>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css' rel='stylesheet' />
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        <link rel="icon" href="../public/assets/img/logoMV.svg">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 
         {% block stylesheets %}
         {% endblock %}
@@ -18,10 +20,12 @@
     <body>
 
     <!--Navbar-->
-    <nav class="navbar navbar-expand-lg bg-tertiary mv-navbar-app">
+    {% if block('navbar') is defined %}
+
+    <nav class="navbar navbar-expand-lg bg-primary mv-navbar-app">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="images/logo/logo-mv-square.svg" width="30" height="30" class="d-inline-block align-top" alt="Logo">
+            <a class="navbar-brand text-white" href="{{ path('home') }}">
+                <img src="assets/img/logoMV.svg" width="30" height="30" class="d-inline-block align-content-center ">
                 eMédiation
             </a>
             <div class="btn btn-outline-white nav-toggle-mobile d-lg-none">
@@ -36,113 +40,72 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-6 mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Offre culturelle</a>
+                        <a class="nav-link text-white" href="#">Offre culturelle</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Vidéo</a>
+                        <a class="nav-link text-white" href="#">Vidéo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Podcast</a>
+                        <a class="nav-link text-white" href="#">Podcast</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Live</a>
+                        <a class="nav-link text-white" href="#">Live</a>
                     </li>
                 </ul>
-                <div class="btn-group btn-group-sm" role="group" aria-label="Navigation shortcut">
-                    <a href="#" class="btn p-2"><span class="fas fa-search" title="Title for accessibility"></span></a>
-                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-14 mr-auto">
+                    {% if app.user %}
+                        <li class="nav-item align-items-end">
+                            <a class="nav-link text-white" href="{{ path('account') }}">Mon compte</a>
+                        </li>
+                    {% endif %}
+                </ul>
             </div>
         </div>
     </nav>
+    {% endif %}
+
+    <div class="{% if block('navbar') is not defined %}mt-5{% endif %}">
         {% block content %}
         {% endblock %}
-
-    <!-- FOOTER -->
-    <section class="col-12">
-    <footer class="footer" role="contentinfo">
-
-        <div class="footer-group">
-
-            <div class="footer-faculties">
-                <button class="footer-title collapse-title collapsed" type="button" data-toggle="collapse" data-target="#collapse-fac" aria-expanded="false" aria-controls="collapse-fac">
-                    Sites
-                </button>
-                <div class="collapse collapse-item" id="collapse-fac">
-                    <ul class="footer-links">
-                        <li>
-                            <a href="https://www.mediatheque.ch/sites/brig/">Médiathèque Valais - Brigue <strong>MV-Brig</strong></a>
-                        </li>
-                        <li>
-                            <a href="https://www.mediatheque.ch/sites/sion/">Médiathèque Valais - Sion <strong>MV-Sion</strong></a>
-                        </li>
-                        <li>
-                            <a href="https://www.mediatheque.ch/sites/martigny/">Médiathèque Valais - Martigny <strong>MV-Martigny</strong></a>
-                        </li>
-                        <li>
-                            <a href="https://www.mediatheque.ch/sites/st-maurice/">Médiathèque Valais - St-Maurice <strong>MV-St-Maurice</strong></a>
-                        </li>
-                        <li>
-                            <a href="https://www.mediatheque.ch/sites/st-maurice/">eMédiathèque <strong>eMV</strong></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-group footer-buttons">
-
-            <p class="footer-title footer-title-no-underline">Contact</p>
-            <a href="mailto:service@example.com" class="btn btn-tertiary btn-sm">E-mail: service@example.com</a>
-            <a href="tel:+41276060000" class="btn btn-tertiary btn-sm">Tél. : +41 27 606 0000</a>
-
-        </div>
-
-        <div class="footer-group footer-socials">
-            <div class="footer-social">
-                <a href="true" class="social-icon social-facebook social-icon-negative">
-                    <span class="icon fab fa-facebook" title="Facebook"></span>
-                    <span class="sr-only">Follow us on Facebook.</span>
-                </a>
-                <a href="true" class="social-icon social-twitter social-icon-negative">
-                    <span class="icon fab fa-twitter" title="Twitter"></span>
-                    <span class="sr-only">Follow us on Twitter.</span>
-                </a>
-                <a href="true" class="social-icon social-instagram social-icon-negative">
-                    <span class="icon fab fa-instagram" title="Instagram"></span>
-                    <span class="sr-only">Follow us on Instagram.</span>
-                </a>
-                <a href="true" class="social-icon social-youtube social-icon-negative">
-                    <span class="icon fab fa-youtube" title="Youtube"></span>
-                    <span class="sr-only">Follow us on Youtube.</span>
-                </a>
-                <a href="true" class="social-icon social-linkedin social-icon-negative">
-                    <span class="icon fab fa-linkedin" title="LinkedIn"></span>
-                    <span class="sr-only">Follow us on LinkedIn.</span>
-                </a>
-            </div>
-        </div>
-
-
-        <div class="footer-legal">
-            <div class="footer-legal-links">
-                <a href="https://www.mediatheque.ch/about/overview/fr/reglements-et-directives/">Mentions légales</a>
-            </div>
-            <div>
-                <p>&copy; 2021 Médiathèque Valais</p>
-            </div>
-        </div>
-
-    </footer>
-    </section>
+    </div>
 
 
 
-    <script src="{{ asset('assets/js/theme.min.js') }}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="{{ asset('assets/js/script.js') }}"></script>
-    <script src="https://unpkg.com/@valais-media-library/mv-styleguide@1.0.0/js/vendors.min.js"></script>
-    <script src="https://unpkg.com/@valais-media-library/mv-web-components/dist/mv-web-components.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"></script>
+    <script src="{{ asset('assets/js/theme.min.js') }}"></script>
+    <script defer src="/your-path-to-fontawesome/js/brands.js"></script>
+    <script defer src="/your-path-to-fontawesome/js/solid.js"></script>
+    <script defer src="/your-path-to-fontawesome/js/fontawesome.js"></script>
+    <script src="./assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="./assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
+    <script src="./assets/libs/aos/dist/aos.js"></script>
+    <script src="./assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script src="./assets/libs/countup.js/dist/countUp.min.js"></script>
+    <script src="./assets/libs/dropzone/dist/min/dropzone.min.js"></script>
+    <script src="./assets/libs/flickity/dist/flickity.pkgd.min.js"></script>
+    <script src="./assets/libs/flickity-fade/flickity-fade.js"></script>
+    <script src="./assets/libs/highlightjs/highlight.pack.min.js"></script>
+    <script src="./assets/libs/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="./assets/libs/isotope-layout/dist/isotope.pkgd.min.js"></script>
+    <script src="./assets/libs/jarallax/dist/jarallax.min.js"></script>
+    <script src="./assets/libs/jarallax/dist/jarallax-video.min.js"></script>
+    <script src="./assets/libs/jarallax/dist/jarallax-element.min.js"></script>
+    <script src="./assets/libs/quill/dist/quill.min.js"></script>
+    <script src="./assets/libs/smooth-scroll/dist/smooth-scroll.min.js"></script>
+    <script src="./assets/libs/typed.js/lib/typed.min.js"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
 
     </body>
 </html>
