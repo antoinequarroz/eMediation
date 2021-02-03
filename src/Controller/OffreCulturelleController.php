@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+use App\Classe\Search;
 use App\Entity\OffreCulturelle;
 use App\Entity\Product;
+use App\Form\RechercheType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -26,19 +29,29 @@ class OffreCulturelleController extends AbstractController
     /**
      * @Route("/offre_culturelle", name="offre_culturelle")
      */
-    public function index(): Response
+    public function index(Request $request)
     {
         $offres = $this->entityManager->getRepository(OffreCulturelle::class)->findAll();
 
+        $search = new Search();
+        $form = $this->createForm(RechercheType::class, $search);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $offres = $this->entityManager->getRepository(OffreCulturelle::class)->findWithSearch($search);
+        }
+
         return $this->render('offre_culturelle/index.html.twig',[
-            'offres' => $offres
+            'offres' => $offres,
+            'form' => $form->createView()
         ]);
     }
 
     /**
      * @Route("/offre_culturelle/{slug}", name="offres_culturelles")
      */
-    public function show($slug): Response
+    public function show($slug)
     {
         $offre = $this->entityManager->getRepository(OffreCulturelle::class)->findOneBySlug($slug);
 
