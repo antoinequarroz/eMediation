@@ -37,7 +37,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Catégories', 'fas fa-list', Category::class);
         yield MenuItem::linkToCrud('Vidéo', 'fas fa-video', Product::class);
         yield MenuItem::linkToCrud('Live', 'fas fa-photo-video', Lives::class);
-        yield MenuItem::linkToCrud('Podcast', 'fas fa-photo-video', Podcast::class);
-        yield MenuItem::linkToCrud('Offre Culturelle', 'fas fa-photo-video', OffreCulturelle::class);
+        yield MenuItem::linkToCrud('Podcast', 'fas fa-microphone', Podcast::class);
+        yield MenuItem::linkToCrud('Offre Culturelle', 'fas fa-calendar', OffreCulturelle::class);
     }
 }
