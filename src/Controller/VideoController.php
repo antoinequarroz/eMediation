@@ -25,11 +25,28 @@ class VideoController extends AbstractController
     /**
      * @Route("/video", name="videos")
      */
-    public function index(): Response
+    public function index()
     {
         $videos = $this->entityManager->getRepository(Product::class)->findAll();
 
         return $this->render('video/index.html.twig',[
+            'videos' => $videos
+        ]);
+    }
+
+    /**
+     * @Route("/video/{slug}", name="video")
+     */
+    public function show($slug)
+    {
+
+        $video = $this->entityManager->getRepository(Product::class)->findOneBySlug($slug);
+
+        if (!$video) {
+            return $this->redirectToRoute('videos');
+        }
+
+        return $this->render('video/show.html.twig',[
             'videos' => $videos
         ]);
     }
