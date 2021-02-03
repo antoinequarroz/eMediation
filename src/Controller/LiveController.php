@@ -34,4 +34,20 @@ class LiveController extends AbstractController
             'lives' => $lives
         ]);
     }
+
+    /**
+     * @Route("/live/{slug}", name="lives")
+     */
+    public function show($slug): Response
+    {
+        $live = $this->entityManager->getRepository(Lives::class)->findOneBySlug($slug);
+
+        if (!$live) {
+            return $this->redirectToRoute('live');
+        }
+
+        return $this->render('live/show.html.twig',[
+            'live' => $live
+        ]);
+    }
 }

@@ -31,7 +31,7 @@
                         <div class="card mb-6 mb-lg-0 shadow-light-lg lift lift-lg" style="width: 373px">
 
                             <!-- Image -->
-                            <a class="card-img-top" href="#!">
+                            <a class="card-img-top" href="{{ path("podcast", {"slug" : podcast.slug } )}}">
 
                                 <!-- Image -->
                                 <img src="./uploads/{{ podcast.image }}" alt="..." class="card-img-top" sizes=px height="204px">
@@ -59,6 +59,19 @@
                 {% endfor %}
             </div> <!-- / .row -->
         </div> <!-- / .container -->
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <audio id="player" class="" controls>
+                        <source src="/path/to/audio.mp3" type="audio/mp3" />
+                        <source src="/path/to/audio.ogg" type="audio/ogg" />
+                    </audio>
+                </div>
+            </div>
+        </div>
     </section>
 
 {% endblock %}

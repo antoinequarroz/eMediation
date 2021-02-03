@@ -34,4 +34,20 @@ class OffreCulturelleController extends AbstractController
             'offres' => $offres
         ]);
     }
+
+    /**
+     * @Route("/offre_culturelle/{slug}", name="offres_culturelles")
+     */
+    public function show($slug): Response
+    {
+        $offre = $this->entityManager->getRepository(OffreCulturelle::class)->findOneBySlug($slug);
+
+        if (!$offre) {
+            return $this->redirectToRoute('offre_culturelle');
+        }
+
+        return $this->render('offre_culturelle/show.html.twig',[
+            'offre' => $offre
+        ]);
+    }
 }

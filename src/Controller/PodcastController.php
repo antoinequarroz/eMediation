@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\OffreCulturelle;
 use App\Entity\Podcast;
 use App\Entity\Product;
 use Doctrine\ORM\EntityManagerInterface;
@@ -33,6 +34,22 @@ class PodcastController extends AbstractController
 
         return $this->render('podcast/index.html.twig',[
             'podcasts' => $podcasts
+        ]);
+    }
+
+    /**
+     * @Route("/podcast/{slug}", name="podcasts")
+     */
+    public function show($slug): Response
+    {
+        $podcast = $this->entityManager->getRepository(Podcast::class)->findOneBySlug($slug);
+
+        if (!$podcast) {
+            return $this->redirectToRoute('podcast');
+        }
+
+        return $this->render('podcast/show.html.twig',[
+            'podcast' => $podcast
         ]);
     }
 }

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ video.title }}{% endblock %}
+{% block title %}{{ offre.title }}{% endblock %}
 {% block navbar %}{% endblock %}
 
 {% block content %}
@@ -10,7 +10,7 @@
                 <div class="col-12 text-left">
 
                     <!-- Heading -->
-                    <h1 class="display-2 text-white font-weight-bold mb-10">{{ video.title }}</h1>
+                    <h1 class="display-2 text-white font-weight-bold mb-10">{{ offre.title }}</h1>
 
                 </div>
             </div> <!-- / .row -->
@@ -26,7 +26,7 @@
                 <div class="col-12">
                     <div class="plyr__video-embed" id="player">
                         <iframe
-                                src="{{video.media}}"
+                                src="{{offre.media}}"
                                 allowfullscreen
                                 allowtransparency
                                 allow="autoplay"
@@ -40,8 +40,8 @@
         <div class="container mt-5">
             <div class="row">
                 <div class="col-6">
-                    <h1>A propos de la vidéo</h1>
-                    <p class="text-justify">{{ video.description }}</p>
+                    <h1>A propos de l'offre culturelle</h1>
+                    <p class="text-justify">{{ offre.description }}</p>
                 </div>
                 <div class="col-6">
 
@@ -54,40 +54,34 @@
 
                                 <!-- Heading -->
                                 <h2>
-                                    {{ video.title }}
+                                    {{ offre.title }}
                                 </h2>
 
-                                <h3>Episode {{ video.episode }}</h3>
+                                <h3>Episode {{ offre.episode }}</h3>
 
                                 <div class="card-meta mt-auto">
 
                                     <!-- Author -->
                                     <h6 class="text-uppercase text-dark mr-2 mb-0">
-                                        {{ video.createur }}
+                                        {{ offre.createur }}
                                     </h6>
 
                                     <!-- Date -->
                                     <p class="h6 text-uppercase text-dark mb-0 ml-auto">
-                                        <time datetime="2019-05-02">{{ video.createur }}</time>
+                                        <time datetime="2019-05-02">{{ offre.createur }}</time>
                                     </p>
 
                                 </div>
                             </div>
 
-                            </div>
                         </div>
-
                     </div>
 
                 </div>
+
             </div>
+        </div>
     </section>
-
-
-
-
-
-
 
 {% endblock %}
 

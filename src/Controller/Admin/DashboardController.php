@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Category;
+use App\Entity\Domaine;
 use App\Entity\Lives;
 use App\Entity\OffreCulturelle;
 use App\Entity\Podcast;
@@ -35,6 +36,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', User::class);
         yield MenuItem::linkToCrud('Catégories', 'fas fa-list', Category::class);
+        yield MenuItem::linkToCrud('Domaines', 'fas fa-list', Domaine::class);
         yield MenuItem::linkToCrud('Vidéo', 'fas fa-video', Product::class);
         yield MenuItem::linkToCrud('Live', 'fas fa-photo-video', Lives::class);
         yield MenuItem::linkToCrud('Podcast', 'fas fa-microphone', Podcast::class);
