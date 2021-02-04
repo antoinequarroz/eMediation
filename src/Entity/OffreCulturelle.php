@@ -68,6 +68,12 @@ class OffreCulturelle
      */
     private $isBest;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Domains::class, inversedBy="domianes")
+     */
+    private $domains;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -189,6 +195,18 @@ class OffreCulturelle
     public function setIsBest(bool $isBest): self
     {
         $this->isBest = $isBest;
+
+        return $this;
+    }
+
+    public function getDomains(): ?Domains
+    {
+        return $this->domains;
+    }
+
+    public function setDomains(?Domains $domains): self
+    {
+        $this->domains = $domains;
 
         return $this;
     }

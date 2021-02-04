@@ -38,7 +38,8 @@ class OffreCulturelleCrudController extends AbstractCrudController
             TextField::new('createur'),
             BooleanField::new('isBest'),
             DateField::new('date'),
-            AssociationField::new('category')
+            AssociationField::new('category'),
+            AssociationField::new('domains')
         ];
     }
 }

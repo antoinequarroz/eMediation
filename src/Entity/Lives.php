@@ -68,6 +68,11 @@ class Lives
      */
     private $isBest;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Domains::class, inversedBy="lives")
+     */
+    private $domaine;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -189,6 +194,18 @@ class Lives
     public function setIsBest(bool $isBest): self
     {
         $this->isBest = $isBest;
+
+        return $this;
+    }
+
+    public function getDomaine(): ?Domains
+    {
+        return $this->domaine;
+    }
+
+    public function setDomaine(?Domains $domaine): self
+    {
+        $this->domaine = $domaine;
 
         return $this;
     }

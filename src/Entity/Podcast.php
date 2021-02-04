@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PodcastRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -67,6 +69,16 @@ class Podcast
      * @ORM\Column(type="boolean")
      */
     private $isBest;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Domains::class, inversedBy="types")
+     */
+    private $domaine;
+
+    public function __construct()
+    {
+        $this->type = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -189,6 +201,18 @@ class Podcast
     public function setIsBest(bool $isBest): self
     {
         $this->isBest = $isBest;
+
+        return $this;
+    }
+
+    public function getDomaine(): ?Domains
+    {
+        return $this->domaine;
+    }
+
+    public function setDomaine(?Domains $domaine): self
+    {
+        $this->domaine = $domaine;
 
         return $this;
     }
