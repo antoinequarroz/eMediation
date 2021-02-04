@@ -28,12 +28,19 @@ class LivesRepository extends ServiceEntityRepository
         $query = $this
             ->createQueryBuilder('l')
             ->select('c', 'l')
-            ->join('l.category','c');
+            ->select('d', 'l')
+            ->join('l.category','c')
+            ->join('l.domaine', 'd');
 
         if (!empty($search->categories)){
             $query = $query
                 ->andWhere('c.id IN (:categories)')
                 ->setParameter('categories', $search->categories);
+        }
+        if (!empty($search->domaines)){
+            $query = $query
+                ->andWhere('d.id IN (:domaines)')
+                ->setParameter('domaines', $search->domaines);
         }
 
         if (!empty($search->string)) {

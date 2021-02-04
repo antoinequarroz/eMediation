@@ -28,12 +28,19 @@ class OffreCulturelleRepository extends ServiceEntityRepository
         $query = $this
             ->createQueryBuilder('o')
             ->select('c', 'o')
-            ->join('o.category','c');
+            ->select('d', 'o')
+            ->join('o.category','c')
+            ->join('o.domains', 'd');
 
         if (!empty($search->categories)){
             $query = $query
                 ->andWhere('c.id IN (:categories)')
                 ->setParameter('categories', $search->categories);
+        }
+        if (!empty($search->domaines)){
+            $query = $query
+                ->andWhere('d.id IN (:domaines)')
+                ->setParameter('domaines', $search->domaines);
         }
 
         if (!empty($search->string)) {

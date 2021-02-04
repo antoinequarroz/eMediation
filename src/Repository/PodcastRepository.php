@@ -28,12 +28,19 @@ class PodcastRepository extends ServiceEntityRepository
         $query = $this
             ->createQueryBuilder('p')
             ->select('c', 'p')
-            ->join('p.category','c');
+            ->select('d', 'p')
+            ->join('p.category','c')
+            ->join('p.domaine', 'd');
 
         if (!empty($search->categories)){
             $query = $query
                 ->andWhere('c.id IN (:categories)')
                 ->setParameter('categories', $search->categories);
+        }
+        if (!empty($search->domaines)){
+            $query = $query
+                ->andWhere('d.id IN (:domaines)')
+                ->setParameter('domaines', $search->domaines);
         }
 
         if (!empty($search->string)) {
