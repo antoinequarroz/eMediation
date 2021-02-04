@@ -87,17 +87,19 @@
 
                 </div>
             </div> <!-- / .row -->
+
             <div class="row">
+                {% for video in videos %}
                 <div class="col-12 col-md-6 col-lg-4 d-flex">
 
                     <!-- Card -->
                     <div class="card mb-6 mb-lg-0 shadow-light-lg lift lift-lg" style="width: 373px">
 
                         <!-- Image -->
-                        <a class="card-img-top" href="#!">
+                        <a class="card-img-top" href="{{ path("video", {"slug" : video.slug } )}}">
 
                             <!-- Image -->
-                            <img src="assets/img/photos/photo-15.jpg" alt="..." class="card-img-top">
+                            <img src="./uploads/{{ video.image }}" alt="..." class="card-img-top" sizes=px height="204px">
 
                         </a>
 
@@ -106,12 +108,12 @@
 
                             <!-- Heading -->
                             <h3>
-                                Titre de la vidéo
+                                {{video.title}}
                             </h3>
 
                             <!-- Text -->
                             <p class="mb-0 text-muted">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim.
+                                {{ video.description }}
                             </p>
 
                         </a>
@@ -119,6 +121,7 @@
                     </div>
 
                 </div>
+                {% endfor %}
 
             </div> <!-- / .row -->
         </div> <!-- / .container -->
@@ -145,37 +148,39 @@
                 </div>
             </div> <!-- / .row -->
             <div class="row">
-                <div class="col-12 col-md-6 col-lg-4 d-flex">
+                {% for live in lives %}
+                    <div class="col-12 col-md-6 col-lg-4 d-flex">
 
-                    <!-- Card -->
-                    <div class="card mb-6 mb-lg-0 shadow-light-lg lift lift-lg">
-
-                        <!-- Image -->
-                        <a class="card-img-top" href="#!">
+                        <!-- Card -->
+                        <div class="card mb-6 mb-lg-0 shadow-light-lg lift lift-lg" style="width: 373px">
 
                             <!-- Image -->
-                            <img src="assets/img/photos/photo-15.jpg" alt="..." class="card-img-top">
+                            <a class="card-img-top" href="{{ path("lives", {"slug" : live.slug } )}}">
 
-                        </a>
+                                <!-- Image -->
+                                <img src="./uploads/{{ live.image }}" alt="..." class="card-img-top" sizes=px height="204px">
 
-                        <!-- Body -->
-                        <a class="card-body shadow-dark" style="border-radius: 6px" href="#!">
+                            </a>
 
-                            <!-- Heading -->
-                            <h3>
-                                Titre du live
-                            </h3>
+                            <!-- Body -->
+                            <a class="card-body shadow-dark" style="border-radius: 6px" href="#!">
 
-                            <!-- Text -->
-                            <p class="mb-0 text-muted">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim.
-                            </p>
+                                <!-- Heading -->
+                                <h3>
+                                    {{live.title}}
+                                </h3>
 
-                        </a>
+                                <!-- Text -->
+                                <p class="mb-0 text-muted">
+                                    {{ live.description }}
+                                </p>
+
+                            </a>
+
+                        </div>
 
                     </div>
-
-                </div>
+                {% endfor %}
 
             </div> <!-- / .row -->
         </div> <!-- / .container -->
@@ -202,37 +207,39 @@
                 </div>
             </div> <!-- / .row -->
             <div class="row">
-                <div class="col-12 col-md-6 col-lg-4 d-flex">
+                {% for podcast in podcasts %}
+                    <div class="col-12 col-md-6 col-lg-4 d-flex">
 
-                    <!-- Card -->
-                    <div class="card mb-6 mb-lg-0 shadow-light-lg lift lift-lg">
-
-                        <!-- Image -->
-                        <a class="card-img-top" href="#!">
+                        <!-- Card -->
+                        <div class="card mb-6 mb-lg-0 shadow-light-lg lift lift-lg" style="width: 373px">
 
                             <!-- Image -->
-                            <img src="assets/img/photos/photo-15.jpg" alt="..." class="card-img-top">
+                            <a class="card-img-top" href="{{ path("podcasts", {"slug" : podcast.slug } )}}">
 
-                        </a>
+                                <!-- Image -->
+                                <img src="./uploads/{{ podcast.image }}" alt="..." class="card-img-top" sizes=px height="204px">
 
-                        <!-- Body -->
-                        <a class="card-body shadow-dark" style="border-radius: 6px" href="#!">
+                            </a>
 
-                            <!-- Heading -->
-                            <h3>
-                                Titre du podcast
-                            </h3>
+                            <!-- Body -->
+                            <a class="card-body shadow-dark" style="border-radius: 6px" href="#!">
 
-                            <!-- Text -->
-                            <p class="mb-0 text-muted">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim.
-                            </p>
+                                <!-- Heading -->
+                                <h3>
+                                    {{podcast.title}}
+                                </h3>
 
-                        </a>
+                                <!-- Text -->
+                                <p class="mb-0 text-muted">
+                                    {{ podcast.description }}
+                                </p>
+
+                            </a>
+
+                        </div>
 
                     </div>
-
-                </div>
+                {% endfor %}
 
             </div> <!-- / .row -->
         </div> <!-- / .container -->
@@ -259,37 +266,39 @@
                 </div>
             </div> <!-- / .row -->
             <div class="row">
-                <div class="col-12 col-md-6 col-lg-4 d-flex">
+                {% for offre in offres %}
+                    <div class="col-12 col-md-6 col-lg-4 d-flex">
 
-                    <!-- Card -->
-                    <div class="card mb-6 mb-lg-0 shadow-light-lg lift lift-lg">
-
-                        <!-- Image -->
-                        <a class="card-img-top" href="#!">
+                        <!-- Card -->
+                        <div class="card mb-6 mb-lg-0 shadow-light-lg lift lift-lg" style="width: 373px">
 
                             <!-- Image -->
-                            <img src="assets/img/photos/photo-15.jpg" alt="..." class="card-img-top">
+                            <a class="card-img-top" href="{{ path("offres_culturelles", {"slug" : offre.slug } )}}">
 
-                        </a>
+                                <!-- Image -->
+                                <img src="./uploads/{{ offre.image }}" alt="..." class="card-img-top" sizes=px height="204px">
 
-                        <!-- Body -->
-                        <a class="card-body shadow-dark" style="border-radius: 6px" href="#!">
+                            </a>
 
-                            <!-- Heading -->
-                            <h3>
-                                Titre de l'offre
-                            </h3>
+                            <!-- Body -->
+                            <a class="card-body shadow-dark" style="border-radius: 6px" href="#!">
 
-                            <!-- Text -->
-                            <p class="mb-0 text-muted">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim.
-                            </p>
+                                <!-- Heading -->
+                                <h3>
+                                    {{offre.title}}
+                                </h3>
 
-                        </a>
+                                <!-- Text -->
+                                <p class="mb-0 text-muted">
+                                    {{ offre.description }}
+                                </p>
+
+                            </a>
+
+                        </div>
 
                     </div>
-
-                </div>
+                {% endfor %}
 
             </div> <!-- / .row -->
         </div> <!-- / .container -->

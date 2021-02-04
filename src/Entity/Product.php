@@ -63,6 +63,11 @@ class Product
      */
     private $image;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isBest;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -172,6 +177,18 @@ class Product
     public function setImage(?string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getIsBest(): ?bool
+    {
+        return $this->isBest;
+    }
+
+    public function setIsBest(bool $isBest): self
+    {
+        $this->isBest = $isBest;
 
         return $this;
     }

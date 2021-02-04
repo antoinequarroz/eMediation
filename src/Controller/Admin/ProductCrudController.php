@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Product;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
@@ -36,6 +37,7 @@ class ProductCrudController extends AbstractCrudController
             TextareaField::new('description'),
             NumberField::new('episode'),
             TextField::new('createur'),
+            BooleanField::new('isBest'),
             DateField::new('date'),
             AssociationField::new('category')
         ];
