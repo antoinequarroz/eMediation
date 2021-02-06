@@ -4,7 +4,7 @@
 {% block navbar %}{% endblock %}
 
 {% block content %}
-    <section data-jarallax="" data-speed=".8" class="pt-10 pb-11 py-md-14 overlay overlay-60 jarallax" style="background-image: none;" data-jarallax-original-styles="background-image: url(../assets/img/shapes/waves/MvWave.svg);">
+    <section data-jarallax="" data-speed=".8" class="pt-10 pb-1 py-md-14 overlay" style="background-image: none;" data-jarallax-original-styles="background-image: url(../assets/img/shapes/waves/MvWave.svg);">
         <div class="container">
             <div class="row justify-content-end">
                 <div class="col-12 text-left">
@@ -20,17 +20,12 @@
             </div>
         </div>
     </section>
-    <section>
+    <section class="mb-5">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="plyr__video-embed" id="player">
-                        <iframe
-                                src="{{video.media}}"
-                                allowfullscreen
-                                allowtransparency
-                                allow="autoplay"
-                        ></iframe>
+                        <iframe src="{{ video.media|raw }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media;"width="1000" height="586" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -68,7 +63,7 @@
 
                                     <!-- Date -->
                                     <p class="h6 text-uppercase text-dark mb-0 ml-auto">
-                                        <time datetime="2019-05-02">{{ video.createur }}</time>
+                                        <time datetime="">{{ video.date|date('d/m/Y')}}</time>
                                     </p>
 
                                 </div>
