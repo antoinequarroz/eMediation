@@ -75,6 +75,11 @@ class Podcast
      */
     private $domaine;
 
+    /**
+     * @ORM\Column(type="string", length=96)
+     */
+    private $sousTitre;
+
     public function __construct()
     {
         $this->type = new ArrayCollection();
@@ -213,6 +218,18 @@ class Podcast
     public function setDomaine(?Domains $domaine): self
     {
         $this->domaine = $domaine;
+
+        return $this;
+    }
+
+    public function getSousTitre(): ?string
+    {
+        return $this->sousTitre;
+    }
+
+    public function setSousTitre(string $sousTitre): self
+    {
+        $this->sousTitre = $sousTitre;
 
         return $this;
     }

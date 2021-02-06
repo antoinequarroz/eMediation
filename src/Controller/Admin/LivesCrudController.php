@@ -34,6 +34,7 @@ class LivesCrudController extends AbstractCrudController
                 ->setRequired(false),
             UrlField::new('media'),
             TextareaField::new('description'),
+            TextareaField::new('sousTitre'),
             NumberField::new('episode'),
             TextField::new('createur'),
             BooleanField::new('isBest'),

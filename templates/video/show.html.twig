@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="plyr__video-embed" id="player">
-                        <iframe src="{{ video.media|raw }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media;"width="1000" height="586" allowfullscreen></iframe>
+                        <div>{{ video.media|raw }}</div>
                     </div>
                 </div>
             </div>
@@ -51,6 +51,11 @@
                                 <h2>
                                     {{ video.title }}
                                 </h2>
+
+                                <div class="row col-12">
+                                    <div class="badge badge-pill badge-primary-soft mb-2 mr-3">{{ video.domaine }}</div>
+                                    <div class="badge badge-pill badge-primary-soft mb-2">{{ video.category }}</div>
+                                </div>
 
                                 <h3>Episode {{ video.episode }}</h3>
 

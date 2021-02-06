@@ -25,12 +25,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="plyr__video-embed" id="player">
-                        <iframe
-                                src="{{live.media}}"
-                                allowfullscreen
-                                allowtransparency
-                                allow="autoplay"
-                        ></iframe>
+                        <div>{{ live.media|raw }}</div>
                     </div>
                 </div>
             </div>
@@ -51,15 +46,19 @@
                         <!-- Collapse -->
                         <div class="collapse d-md-block" id="sidenavCollapse">
                             <div class="card-body">
-
                                 <!-- Heading -->
-                                <h2>
-                                    {{ live.title }}
-                                </h2>
+                                    <h2>
+                                        {{ live.title }}
+                                    </h2>
 
-                                <h3>Episode {{ live.episode }}</h3>
+                                <div class="row col-12">
+                                    <div class="badge badge-pill badge-primary-soft mb-2 mr-3">{{ live.domaine }}</div>
+                                    <div class="badge badge-pill badge-primary-soft mb-2">{{ live.category }}</div>
+                                </div>
 
-                                <div class="card-meta mt-auto">
+                                    <h3>Episode {{ live.episode }}</h3>
+
+                                <div class="card-meta mt-5">
 
                                     <!-- Author -->
                                     <h6 class="text-uppercase text-dark mr-2 mb-0">

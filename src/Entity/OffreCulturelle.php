@@ -73,6 +73,11 @@ class OffreCulturelle
      */
     private $domains;
 
+    /**
+     * @ORM\Column(type="string", length=96)
+     */
+    private $sousTitre;
+
 
     public function getId(): ?int
     {
@@ -207,6 +212,18 @@ class OffreCulturelle
     public function setDomains(?Domains $domains): self
     {
         $this->domains = $domains;
+
+        return $this;
+    }
+
+    public function getSousTitre(): ?string
+    {
+        return $this->sousTitre;
+    }
+
+    public function setSousTitre(string $sousTitre): self
+    {
+        $this->sousTitre = $sousTitre;
 
         return $this;
     }

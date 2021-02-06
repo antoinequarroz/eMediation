@@ -25,12 +25,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="plyr__video-embed" id="player">
-                        <iframe
-                                src="{{offre.media}}"
-                                allowfullscreen
-                                allowtransparency
-                                allow="autoplay"
-                        ></iframe>
+                        <div>{{ offre.media|raw }}</div>
                     </div>
                 </div>
             </div>
@@ -56,6 +51,11 @@
                                 <h2>
                                     {{ offre.title }}
                                 </h2>
+
+                                <div class="row col-12">
+                                    <div class="badge badge-pill badge-primary-soft mb-2 mr-3">{{ offre.domains }}</div>
+                                    <div class="badge badge-pill badge-primary-soft mb-2">{{ offre.category }}</div>
+                                </div>
 
                                 <h3>Episode {{ offre.episode }}</h3>
 

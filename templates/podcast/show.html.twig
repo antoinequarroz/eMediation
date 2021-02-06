@@ -25,12 +25,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="plyr__video-embed" id="player">
-                        <iframe
-                                src="{{podcast.media}}"
-                                allowfullscreen
-                                allowtransparency
-                                allow="autoplay"
-                        ></iframe>
+                        <div>{{ podcast.media|raw }}</div>
                     </div>
                 </div>
             </div>
@@ -56,6 +51,11 @@
                                 <h2>
                                     {{ podcast.title }}
                                 </h2>
+
+                                <div class="row col-12">
+                                    <div class="badge badge-pill badge-primary-soft mb-2 mr-3">{{ podcast.domaine }}</div>
+                                    <div class="badge badge-pill badge-primary-soft mb-2">{{ podcast.category }}</div>
+                                </div>
 
                                 <h3>Episode {{ podcast.episode }}</h3>
 

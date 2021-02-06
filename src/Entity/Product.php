@@ -73,6 +73,11 @@ class Product
      */
     private $domaine;
 
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $sousTitre;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -206,6 +211,18 @@ class Product
     public function setDomaine(?Domains $domaine): self
     {
         $this->domaine = $domaine;
+
+        return $this;
+    }
+
+    public function getSousTitre(): ?string
+    {
+        return $this->sousTitre;
+    }
+
+    public function setSousTitre(string $sousTitre): self
+    {
+        $this->sousTitre = $sousTitre;
 
         return $this;
     }
