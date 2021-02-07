@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Classe\Search;
+use App\Entity\Header;
 use App\Entity\Lives;
 use App\Entity\OffreCulturelle;
 use App\Entity\Podcast;

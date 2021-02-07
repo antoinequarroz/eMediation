@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Form\ChangePasswordType;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,7 +33,7 @@ class AccountPasswordController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $old_pwd = $form->get('old_password')->getData();
 
-            if ($encoder->isPasswordValid($user, $old_pwd)){
+            if ($encoder->isPasswordValid($user, $old_pwd)) {
                 $new_pwd = $form->get('new_password')->getData();
                 $password = $encoder->encodePassword($user, $new_pwd);
 

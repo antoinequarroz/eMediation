@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Category;
 use App\Entity\Domains;
+use App\Entity\Header;
 use App\Entity\Lives;
 use App\Entity\OffreCulturelle;
 use App\Entity\Podcast;
