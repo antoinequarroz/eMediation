@@ -26,13 +26,15 @@
                 <div class="col-12">
                     <img src="../uploads/{{ podcast.image }}" alt="{{ podcast.title }}" style="height: 550px; width: 1000px; border-radius: 6px">
                 </div>
+            </div>
+                <div class="row">
 
                 <div class="col-12">
                     <div class="card card-bleed border-bottom border-bottom-md-0 shadow-dark-lg card-mb-6 mt-8">
 
                         <!-- Collapse -->
                         <div class="collapse d-md-block" id="sidenavCollapse">
-                            <div class="row">
+
                                     <div class="col-12">
                                         <div class="card-body">
                                             <audio id="player" class="" controls>
@@ -40,10 +42,9 @@
                                             </audio>
                                         </div>
                                     </div>
-                            </div>
                         </div>
                     </div>
-
+                </div>
                 </div>
             </div>
         </div>
@@ -66,7 +67,7 @@
 
                                 <!-- Heading -->
                                 <h2>
-                                    {{ podcast.title }}
+                                    {{ podcast.cycle }}
                                 </h2>
 
                                 <div class="row col-12">
