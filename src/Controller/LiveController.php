@@ -7,6 +7,7 @@ use App\Entity\Lives;
 use App\Form\RechercheType;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -32,8 +33,15 @@ class LiveController extends AbstractController
     /**
      * @Route("/live", name="live")
      */
-    public function index(Request $request)
+    public function index(Request $request, PaginatorInterface $paginator)
     {
+        $page = $this->entityManager->getRepository(Lives::class)->findAll();
+        $page = $paginator->paginate(
+            $page, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            11/*limit per page*/
+        );
+
         $lives = $this->entityManager->getRepository(Lives::class)->findAll();
 
         $search = new Search();
@@ -48,6 +56,7 @@ class LiveController extends AbstractController
 
         return $this->render('live/index.html.twig',[
             'lives' => $lives,
+            'page' => $page,
             'form' => $form->createView()
         ]);
     }

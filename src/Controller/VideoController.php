@@ -30,13 +30,13 @@ class VideoController extends AbstractController
      */
     public function index(Request $request, PaginatorInterface $paginator)
     {
-        $videos = $this->entityManager->getRepository(Product::class)->findAll();
-
-        $videos = $paginator->paginate(
-            $videos, /* query NOT result */
+        $page = $this->entityManager->getRepository(Product::class)->findAll();
+        $page = $paginator->paginate(
+            $page, /* query NOT result */
             $request->query->getInt('page', 1)/*page number*/,
-            4/*limit per page*/
+            11/*limit per page*/
         );
+        $videos = $this->entityManager->getRepository(Product::class)->findAll();
 
 
         $search = new Search();
@@ -50,6 +50,7 @@ class VideoController extends AbstractController
 
         return $this->render('video/index.html.twig',[
             'videos' => $videos,
+            'page' => $page,
             'form' => $form->createView()
         ]);
     }

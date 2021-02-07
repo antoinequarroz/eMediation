@@ -7,6 +7,7 @@ use App\Entity\OffreCulturelle;
 use App\Entity\Product;
 use App\Form\RechercheType;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,8 +30,15 @@ class OffreCulturelleController extends AbstractController
     /**
      * @Route("/offre_culturelle", name="offre_culturelle")
      */
-    public function index(Request $request)
+    public function index(Request $request, PaginatorInterface $paginator)
     {
+        $page = $this->entityManager->getRepository(OffreCulturelle::class)->findAll();
+        $page = $paginator->paginate(
+            $page, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            11/*limit per page*/
+        );
+
         $offres = $this->entityManager->getRepository(OffreCulturelle::class)->findAll();
 
         $search = new Search();
@@ -44,6 +52,7 @@ class OffreCulturelleController extends AbstractController
 
         return $this->render('offre_culturelle/index.html.twig',[
             'offres' => $offres,
+            'page' => $page,
             'form' => $form->createView()
         ]);
     }

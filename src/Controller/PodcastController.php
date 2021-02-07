@@ -8,6 +8,7 @@ use App\Entity\Podcast;
 use App\Entity\Product;
 use App\Form\RechercheType;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,8 +32,15 @@ class PodcastController extends AbstractController
     /**
      * @Route("/podcast", name="podcast")
      */
-    public function index(Request $request)
+    public function index(Request $request, PaginatorInterface $paginator)
     {
+        $page = $this->entityManager->getRepository(Podcast::class)->findAll();
+        $page = $paginator->paginate(
+            $page, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            11/*limit per page*/
+        );
+
         $podcasts = $this->entityManager->getRepository(Podcast::class)->findAll();
 
         $search = new Search();
@@ -46,6 +54,7 @@ class PodcastController extends AbstractController
 
         return $this->render('podcast/index.html.twig',[
             'podcasts' => $podcasts,
+            'page' => $page,
             'form' => $form->createView()
         ]);
     }
