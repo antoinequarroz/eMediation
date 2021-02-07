@@ -80,6 +80,12 @@ class Podcast
      */
     private $sousTitre;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Cycle::class, inversedBy="cycle")
+     */
+    private $cycle;
+
+
     public function __construct()
     {
         $this->type = new ArrayCollection();
@@ -233,4 +239,17 @@ class Podcast
 
         return $this;
     }
+
+    public function getCycle(): ?Cycle
+    {
+        return $this->cycle;
+    }
+
+    public function setCycle(?Cycle $cycle): self
+    {
+        $this->cycle = $cycle;
+
+        return $this;
+    }
+
 }

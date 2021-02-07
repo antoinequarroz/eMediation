@@ -78,6 +78,11 @@ class Product
      */
     private $sousTitre;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Cycle::class, inversedBy="products")
+     */
+    private $cycle;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -223,6 +228,18 @@ class Product
     public function setSousTitre(string $sousTitre): self
     {
         $this->sousTitre = $sousTitre;
+
+        return $this;
+    }
+
+    public function getCycle(): ?Cycle
+    {
+        return $this->cycle;
+    }
+
+    public function setCycle(?Cycle $cycle): self
+    {
+        $this->cycle = $cycle;
 
         return $this;
     }

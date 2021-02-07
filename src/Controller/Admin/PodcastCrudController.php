@@ -40,7 +40,8 @@ class PodcastCrudController extends AbstractCrudController
             BooleanField::new('isBest'),
             DateField::new('date'),
             AssociationField::new('category'),
-            AssociationField::new('domaine')
+            AssociationField::new('domaine'),
+            AssociationField::new('cycle')
         ];
     }
 }

@@ -40,7 +40,8 @@ class OffreCulturelleCrudController extends AbstractCrudController
             BooleanField::new('isBest'),
             DateField::new('date'),
             AssociationField::new('category'),
-            AssociationField::new('domains')
+            AssociationField::new('domains'),
+            AssociationField::new('cycle')
         ];
     }
 }
