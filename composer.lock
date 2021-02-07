@@ -4,8 +4,50 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4d164bc9a2156b193072f1ce191cd783",
+    "content-hash": "df03732fa5c36dd5b8bffc9395057529",
     "packages": [
+        {
+            "name": "acseo/typesense-bundle",
+            "version": "v0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/acseo/TypesenseBundle.git",
+                "reference": "3ac501240d503e4ddc329c6d1117cca57d295bd3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/acseo/TypesenseBundle/zipball/3ac501240d503e4ddc329c6d1117cca57d295bd3",
+                "reference": "3ac501240d503e4ddc329c6d1117cca57d295bd3",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/orm": "~2.4,>=2.4.5",
+                "php": "^7.1.3",
+                "symfony/framework-bundle": "^3.4|^4.3|^5",
+                "symfony/http-client-contracts": "^1.0|^2.0"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^5.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "ACSEO\\TypesenseBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Potier",
+                    "email": "nicolas.potier@acseo.fr"
+                }
+            ],
+            "description": "This bundle provides integration with Typesense in Symfony",
+            "time": "2020-11-24T11:09:12+00:00"
+        },
         {
             "name": "composer/package-versions-deprecated",
             "version": "1.11.99.1",

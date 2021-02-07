@@ -1,4 +1,7 @@
 {
+    "acseo/typesense-bundle": {
+        "version": "v0.4"
+    },
     "composer/package-versions-deprecated": {
         "version": "1.11.99.1"
     },
