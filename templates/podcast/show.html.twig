@@ -24,9 +24,26 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="plyr__video-embed" id="player">
-                        {{ podcast.media|raw }}
+                    <img src="../uploads/{{ podcast.image }}" alt="{{ podcast.title }}" style="height: 550px; width: 1000px; border-radius: 6px">
+                </div>
+
+                <div class="col-12">
+                    <div class="card card-bleed border-bottom border-bottom-md-0 shadow-dark-lg card-mb-6 mt-8">
+
+                        <!-- Collapse -->
+                        <div class="collapse d-md-block" id="sidenavCollapse">
+                            <div class="row">
+                                    <div class="col-12">
+                                        <div class="card-body">
+                                            <audio id="player" class="" controls>
+                                                {{ podcast.media | raw }}
+                                            </audio>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
