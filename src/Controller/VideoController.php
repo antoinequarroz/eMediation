@@ -6,6 +6,7 @@ use App\Classe\Search;
 use App\Entity\Product;
 use App\Form\RechercheType;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -27,9 +28,16 @@ class VideoController extends AbstractController
     /**
      * @Route("/video", name="videos")
      */
-    public function index(Request $request)
+    public function index(Request $request, PaginatorInterface $paginator)
     {
         $videos = $this->entityManager->getRepository(Product::class)->findAll();
+
+        $videos = $paginator->paginate(
+            $videos, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            4/*limit per page*/
+        );
+
 
         $search = new Search();
         $form = $this->createForm(RechercheType::class, $search);
