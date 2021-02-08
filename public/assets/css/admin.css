@@ -1,0 +1,15 @@
+/* public/css/admin.css */
+:root {
+    /* make the backend contents as wide as the browser window */
+    --body-max-width: 90%;
+    /* change the background color of the <body> */
+    --body-bg: #000000,0;
+    /* make the base font size smaller */
+    --font-size-base: 13px;
+    /* remove all border radius to make corners straight */
+    --border-radius: 6px;
+    --link-color: #9A042F;
+    --color-primary: #9A042F;
+    --table-header-bg: #9A042F;
+    --header: #fff;
+}

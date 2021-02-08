@@ -11,6 +11,7 @@ use App\Entity\OffreCulturelle;
 use App\Entity\Podcast;
 use App\Entity\Product;
 use App\Entity\User;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -30,11 +31,17 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('eMediation');
+            ->setTitle('eMédiation');
+    }
+    public function configureAssets(): Assets
+    {
+        return Assets::new()
+            ->addCssFile('assets/css/admin.css');
     }
 
     public function configureMenuItems(): iterable
     {
+        yield MenuItem::linktoRoute('Accueil', 'fas fa-home', 'home');
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', User::class);
         yield MenuItem::linkToCrud('Catégories', 'fas fa-list', Category::class);
         yield MenuItem::linkToCrud('Domaine', 'fas fa-list-alt', Domains::class);
