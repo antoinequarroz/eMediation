@@ -665,7 +665,7 @@ input[type="range"].plyr__tab-focus::-webkit-slider-runnable-track {
     outline-width: 3px;
 }
 .plyr__poster {
-    background-color: #000;
+    background-color: #00000000;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: contain;
@@ -1014,14 +1014,15 @@ input[type="range"].plyr__tab-focus::-webkit-slider-runnable-track {
     );
 }
 .plyr--video {
-    background: #000;
+    background: #00000000;
+    background: var(--plyr-video-background,var(--plyr-video-background,#00000000));
     overflow: hidden;
 }
 .plyr--video.plyr--menu-open {
     overflow: visible;
 }
 .plyr__video-wrapper {
-    background: #000;
+    background: #00000000;
     height: 100%;
     margin: auto;
     overflow: hidden;

@@ -33,7 +33,7 @@ class ProductCrudController extends AbstractCrudController
                 ->setUploadDir('public/uploads')
                 ->setUploadedFileNamePattern('[randomhash].[extension]')
                 ->setRequired(false),
-            UrlField::new('media'),
+            TextField::new('media'),
             TextareaField::new('description'),
             TextareaField::new('sousTitre'),
             NumberField::new('episode'),
