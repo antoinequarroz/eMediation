@@ -10,6 +10,11 @@
     --border-radius: 6px;
     --link-color: #9A042F;
     --color-primary: #9A042F;
-    --table-header-bg: #9A042F;
-    --header: #fff;
+    --table-header-bg: #fff;
+    --text-color: dark;
+}
+
+.custom-control-input:checked~.custom-control-label:before {
+    background-color: #9A042F;
+    border-color:#9A042F ;
 }
