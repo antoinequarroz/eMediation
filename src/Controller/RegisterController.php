@@ -7,7 +7,6 @@ use App\Form\RegisterType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -20,6 +19,9 @@ class RegisterController extends AbstractController
         $this->entityManager = $entityManager;
     }
 
+    /*
+     * Création d'une route pour les inscriptions
+    */
 
     /**
      * @Route("/register", name="register")
@@ -27,25 +29,26 @@ class RegisterController extends AbstractController
     public function index(Request $request, UserPasswordEncoderInterface $encoder)
     {
 
-        $user = new User();
-        $form = $this->createForm(RegisterType::class, $user);
+        $user = new User(); /*Création d'un nouvel utilisateur*/
+        $form = $this->createForm(RegisterType::class, $user); /*Création d'une formulaire d'inscription*/
 
         $form -> handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()){ /*Si le formulaire est envoyé et validé le code suivant s'exécute*/
 
-            $user = $form->getData();
+            $user = $form->getData(); /*Envoie le résultat du formulaire dans la base de données*/
 
-            $password = $encoder->encodePassword($user,$user->getPassword());
+            $password = $encoder->encodePassword($user,$user->getPassword()); /*Crée un encodeur pour les mots de passes de chaque utilisateurs*/
 
             $user->setPassword($password);
 
             $this->entityManager->persist($user);
-            $this->entityManager->flush();
+            $this->entityManager->flush(); /*Envoie le nouvel utilisateur créer avec le mot de passe crypter dans le formulaire dans la base de données*/
         }
 
+        /*Retourne le contenu du controller dans la vue register/index.html.twig*/
         return $this->render('register/index.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView() /*Envoie le formulaire à la vue*/
         ]);
     }
 }

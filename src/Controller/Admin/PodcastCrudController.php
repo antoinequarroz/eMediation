@@ -24,24 +24,24 @@ class PodcastCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('title'),
-            SlugField::new('slug')
+            TextField::new('title'), /*Crée un champ titre */
+            SlugField::new('slug') /*Crée un champ slug */
                 ->setTargetFieldName('title'),
-            ImageField::new('image')
+            ImageField::new('image') /*Crée un champ image */
                 ->setBasePath('uploads/')
-                ->setUploadDir('public/uploads')
-                ->setUploadedFileNamePattern('[randomhash].[extension]')
+                ->setUploadDir('public/uploads') /*Envoie la nouvelle image dans ce fichier*/
+                ->setUploadedFileNamePattern('[randomhash].[extension]') /*Renomme le fichier random*/
                 ->setRequired(false),
-            TextField::new('media'),
-            TextareaField::new('description'),
-            TextareaField::new('sousTitre'),
-            NumberField::new('episode'),
-            TextField::new('createur'),
-            BooleanField::new('isBest'),
-            DateField::new('date'),
-            AssociationField::new('category'),
-            AssociationField::new('domaine'),
-            AssociationField::new('cycle')
+            TextField::new('media'), /*Crée un champ média pour les URL */
+            TextareaField::new('description'), /*Crée un champ description */
+            TextareaField::new('sousTitre'), /*Crée un champ sous-titre */
+            NumberField::new('episode'),  /*Crée un champ episode */
+            TextField::new('createur'), /*Crée un champ createur */
+            BooleanField::new('isBest'), /*Crée un champ isBest pour afficher le contenu mis en avant sur la première page */
+            DateField::new('date'), /*Crée un champ date */
+            AssociationField::new('category'), /*Crée un champ catégory pour la sélection d'une des catégories */
+            AssociationField::new('domaine'), /*Crée un champ domaine pour la sélection d'un des domaines */
+            AssociationField::new('cycle') /*Crée un champ cycle pour la sélection d'un cycle */
         ];
     }
 }

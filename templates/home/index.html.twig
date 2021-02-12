@@ -1,10 +1,10 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %} <!-- extend le fichier twig base.index.twig -->
 
 {% block title %}Homepage{% endblock %}
 
 {% block navbar %}{% endblock %}
 
-{% block content %}
+{% block content %} <!-- Début du bloc content -->
 
     <style>
         .example-wrapper code { background: #F8F8F8; padding: 2px 6px; }
@@ -16,16 +16,17 @@
                 <div class="col-12 col-md-10 col-lg-8 text-center">
 
                     <!-- Heading -->
-                    <h1 class="display-2 text-white font-weight-normal">eMédiation</h1>
+                    <h1 class="display-2 text-white font-weight-normal">eMédiation</h1> <!-- Titre de la homepage -->
 
                     <!-- Text -->
                     <p class="lead text-white-75 mb-0">
-                        Vous cherchez du contenu en ligne ? <br>
-                        Vous êtes au bon endroit </p>
+                        Vous cherchez du contenu en ligne ? <br> <!-- Sous titre -->
+                        Vous êtes au bon endroit </p> <!-- Sous titre -->
 
                 </div>
             </div> <!-- / .row -->
         </div> <!-- / .container -->
+        <!-- Image de la homepage -->
         <div id="jarallax-container-0" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; z-index: -100; border-radius: ">
             <div  style="background-position: 50% 50%; background-size: cover; background-repeat: no-repeat; background-image: url('assets/img/photos/photo-31.png'); position: absolute; top: 0px; left: 0px; width: 100%; height: 746px; overflow: hidden; pointer-events: none; transform-style: preserve-3d; backface-visibility: hidden; will-change: transform, opacity; margin-top: 0px; transform: translate3d(0px, -7px, 0px);">
             </div>
@@ -46,7 +47,7 @@
                 <div class="col-12 col-md-auto">
 
                     <!-- Button -->
-                    <a href="{{ path('videos') }}" class="btn btn-sm btn-outline-gray-300 d-none d-md-inline font-weight-normal">
+                    <a href="{{ path('videos') }}" class="btn btn-sm btn-outline-gray-300 d-none d-md-inline font-weight-normal"> <!-- Lien vers la page des vidéos -->
                         Plus de vidéos
                     </a>
 
@@ -54,31 +55,31 @@
             </div> <!-- / .row -->
 
             <div class="row">
-                {% for video in videos %}
+                {% for video in videos %} <!-- Boucle for qui va chercher le contenus des entités pour les afficher -->
                 <div class="col-12 col-md-6 col-lg-4 d-flex">
 
                     <!-- Card -->
                     <div class="card mb-6 mb-lg-0 shadow-light-lg lift lift-lg" style="width: 373px">
 
                         <!-- Image -->
-                        <a class="card-img-top" href="{{ path("video", {"slug" : video.slug } )}}">
+                        <a class="card-img-top" href="{{ path("video", {"slug" : video.slug } )}}"> <!-- Lien de la page de la vidéo. URL par le slug -->
 
                             <!-- Image -->
-                            <img src="./uploads/{{ video.image }}" alt="..." class="card-img-top" sizes=px height="204px">
+                            <img src="./uploads/{{ video.image }}" alt="..." class="card-img-top" sizes=px height="204px"> <!-- Image de la vidéo -->
 
                         </a>
 
                         <!-- Body -->
-                        <a class="card-body shadow-dark" style="border-radius: 6px; height: 182px" href="{{ path("video", {"slug" : video.slug } )}}">
+                        <a class="card-body shadow-dark" style="border-radius: 6px; height: 182px" href="{{ path("video", {"slug" : video.slug } )}}"> <!-- Lien de la page de la vidéo. URL par le slug -->
 
                             <!-- Heading -->
                             <h3>
-                                {{video.title}}
+                                {{video.title}} <!-- Titre de la vidéo -->
                             </h3>
 
                             <!-- Text -->
                             <p class="mb-0 text-muted">
-                                {{ video.sousTitre }}
+                                {{ video.sousTitre }} <!-- Sous-titre de la vidéo -->
                             </p>
 
                         </a>
@@ -86,7 +87,7 @@
                     </div>
 
                 </div>
-                {% endfor %}
+                {% endfor %} <!-- Fin de la boucle for -->
 
             </div> <!-- / .row -->
         </div> <!-- / .container -->
@@ -106,38 +107,38 @@
                 <div class="col-12 col-md-auto">
 
                     <!-- Button -->
-                    <a href="{{path('live')}}" class="btn btn-sm btn-outline-gray-300 d-none d-md-inline font-weight-normal">
+                    <a href="{{path('live')}}" class="btn btn-sm btn-outline-gray-300 d-none d-md-inline font-weight-normal"> <!-- Lien vers la page des lives -->
                         Plus de lives
                     </a>
 
                 </div>
             </div> <!-- / .row -->
             <div class="row">
-                {% for live in lives %}
+                {% for live in lives %} <!-- Boucle for qui va chercher le contenus des entités pour les afficher -->
                     <div class="col-12 col-md-6 col-lg-4 d-flex">
 
                         <!-- Card -->
                         <div class="card mb-6 mb-lg-0 shadow-light-lg lift lift-lg" style="width: 373px">
 
                             <!-- Image -->
-                            <a class="card-img-top" href="{{ path("lives", {"slug" : live.slug } )}}">
+                            <a class="card-img-top" href="{{ path("lives", {"slug" : live.slug } )}}"> <!-- Lien de la page de la vidéo. URL par le slug -->
 
                                 <!-- Image -->
-                                <img src="./uploads/{{ live.image }}" alt="..." class="card-img-top" sizes=px height="204px">
+                                <img src="./uploads/{{ live.image }}" alt="..." class="card-img-top" sizes=px height="204px"> <!-- Image du lives -->
 
                             </a>
 
                             <!-- Body -->
-                            <a class="card-body shadow-dark" style="border-radius: 6px; height: 182px" href="{{ path("lives", {"slug" : live.slug } )}}">
+                            <a class="card-body shadow-dark" style="border-radius: 6px; height: 182px" href="{{ path("lives", {"slug" : live.slug } )}}"> <!-- Lien de la page de la vidéo. URL par le slug -->
 
                                 <!-- Heading -->
                                 <h3>
-                                    {{live.title}}
+                                    {{live.title}} <!-- Titre du live -->
                                 </h3>
 
                                 <!-- Text -->
                                 <p class="mb-0 text-muted">
-                                    {{ live.sousTitre }}
+                                    {{ live.sousTitre }} <!-- Sous-titre du live -->
                                 </p>
 
                             </a>
@@ -145,7 +146,7 @@
                         </div>
 
                     </div>
-                {% endfor %}
+                {% endfor %} <!-- Fin de la boucle for -->
 
             </div> <!-- / .row -->
         </div> <!-- / .container -->
@@ -165,38 +166,38 @@
                 <div class="col-12 col-md-auto">
 
                     <!-- Button -->
-                    <a href="{{ path('podcast') }}" class="btn btn-sm btn-outline-gray-300 d-none d-md-inline font-weight-normal">
+                    <a href="{{ path('podcast') }}" class="btn btn-sm btn-outline-gray-300 d-none d-md-inline font-weight-normal"> <!-- Lien vers la page des podcasts -->
                         Plus de podcast
                     </a>
 
                 </div>
             </div> <!-- / .row -->
             <div class="row">
-                {% for podcast in podcasts %}
+                {% for podcast in podcasts %} <!-- Boucle for qui va chercher le contenus des entités pour les afficher -->
                     <div class="col-12 col-md-6 col-lg-4 d-flex">
 
                         <!-- Card -->
                         <div class="card mb-6 mb-lg-0 shadow-light-lg lift lift-lg" style="width: 373px">
 
                             <!-- Image -->
-                            <a class="card-img-top" href="{{ path("podcasts", {"slug" : podcast.slug } )}}">
+                            <a class="card-img-top" href="{{ path("podcasts", {"slug" : podcast.slug } )}}"> <!-- Lien de la page du podcast. URL par le slug -->
 
                                 <!-- Image -->
-                                <img src="./uploads/{{ podcast.image }}" alt="..." class="card-img-top" sizes=px height="204px">
+                                <img src="./uploads/{{ podcast.image }}" alt="..." class="card-img-top" sizes=px height="204px"> <!-- Image du podcast -->
 
                             </a>
 
                             <!-- Body -->
-                            <a class="card-body shadow-dark" style="border-radius: 6px; height: 182px" href="{{ path("podcasts", {"slug" : podcast.slug } )}}">
+                            <a class="card-body shadow-dark" style="border-radius: 6px; height: 182px" href="{{ path("podcasts", {"slug" : podcast.slug } )}}"> <!-- Lien de la page du podcast. URL par le slug -->
 
                                 <!-- Heading -->
                                 <h3>
-                                    {{podcast.title}}
+                                    {{podcast.title}} <!-- Titre du podcast -->
                                 </h3>
 
                                 <!-- Text -->
                                 <p class="mb-0 text-muted">
-                                    {{ podcast.sousTitre }}
+                                    {{ podcast.sousTitre }} <!-- Sous-titre du live -->
                                 </p>
 
                             </a>
@@ -204,7 +205,7 @@
                         </div>
 
                     </div>
-                {% endfor %}
+                {% endfor %} <!-- Fin de la boucle for -->
 
             </div> <!-- / .row -->
         </div> <!-- / .container -->
@@ -224,38 +225,38 @@
                 <div class="col-12 col-md-auto">
 
                     <!-- Button -->
-                    <a href="{{ path('offre_culturelle') }}" class="btn btn-sm btn-outline-gray-300 d-none d-md-inline font-weight-normal">
+                    <a href="{{ path('offre_culturelle') }}" class="btn btn-sm btn-outline-gray-300 d-none d-md-inline font-weight-normal"> <!-- Lien vers la page des offres culturelles -->
                         En savoir plus
                     </a>
 
                 </div>
             </div> <!-- / .row -->
             <div class="row">
-                {% for offre in offres %}
+                {% for offre in offres %} <!-- Boucle for qui va chercher le contenus des entités pour les afficher -->
                     <div class="col-12 col-md-6 col-lg-4 d-flex mb-5">
 
                         <!-- Card -->
                         <div class="card mb-6 mb-lg-0 shadow-light-lg lift lift-lg" style="width: 373px">
 
                             <!-- Image -->
-                            <a class="card-img-top" href="{{ path("offres_culturelles", {"slug" : offre.slug } )}}">
+                            <a class="card-img-top" href="{{ path("offres_culturelles", {"slug" : offre.slug } )}}"> <!-- Lien de la page de l'offre culturelle. URL par le slug -->
 
                                 <!-- Image -->
-                                <img src="./uploads/{{ offre.image }}" alt="..." class="card-img-top" sizes=px height="204px">
+                                <img src="./uploads/{{ offre.image }}" alt="..." class="card-img-top" sizes=px height="204px"> <!-- Image de l'offre culturelle -->
 
                             </a>
 
                             <!-- Body -->
-                            <a class="card-body shadow-dark" style="border-radius: 6px; height: 182px" href="{{ path("offres_culturelles", {"slug" : offre.slug } )}}">
+                            <a class="card-body shadow-dark" style="border-radius: 6px; height: 182px" href="{{ path("offres_culturelles", {"slug" : offre.slug } )}}"> <!-- Lien de la page de l'offre culturelle. URL par le slug -->
 
                                 <!-- Heading -->
                                 <h3>
-                                    {{offre.title}}
+                                    {{offre.title}} <!-- Titre de l'offre culturelle -->
                                 </h3>
 
                                 <!-- Text -->
                                 <p class="mb-0 text-muted">
-                                    {{ offre.sousTitre }}
+                                    {{ offre.sousTitre }} <!-- Sous-titre de l'offre culturelle -->
                                 </p>
 
                             </a>
@@ -263,11 +264,11 @@
                         </div>
 
                     </div>
-                {% endfor %}
+                {% endfor %} <!-- Fin de la boucle for -->
 
             </div> <!-- / .row -->
         </div> <!-- / .container -->
     </section>
 
 
-{% endblock %}
+{% endblock %} <!-- Fin du bloc content -->

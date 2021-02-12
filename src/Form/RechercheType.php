@@ -12,28 +12,32 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class RechercheType extends AbstractType
 {
+    /*Crée le formulaire pour le système de filtre*/
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
+        $builder /*Crée le formulaire*/
 
-            ->add('categories', EntityType::class, [
-                'label' => false,
+            /*Intègre dans le formulaire les champs catégorie*/
+            ->add('categories', EntityType::class, [  /*Va chercher les données de l'entité Category*/
+                'label' => false, /*Pas de label*/
                 'required' => false,
                 'class' => Category::class,
                 'multiple' => true,
                 'expanded' => true
             ])
-            ->add('domaines', EntityType::class, [
-                'label' => false,
+            /*Intègre dans le formulaire les champs domaines*/
+            ->add('domaines', EntityType::class, [ /*Va chercher les données de l'entité Domaines*/
+                'label' => false, /*Pas de label*/
                 'required' => false,
                 'class' => Domains::class,
                 'multiple' => true,
                 'expanded' => true
             ])
-            ->add('submit', SubmitType::class, [
-                'label' => 'Filtrer',
+            /*Intègre dans le formulaire le bouton de recherche*/
+            ->add('submit', SubmitType::class, [ /*Bouton et validation pour le système de recherche*/
+                'label' => 'Filtrer', /*Label du nom du bouton*/
                 'attr' => [
-                    'class' => 'btn-block btn-primary'
+                    'class' => 'btn-block btn-primary' /*bouton de recherche*/
                 ]
             ])
         ;
@@ -42,7 +46,7 @@ class RechercheType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Search::class,
+            'data_class' => Search::class, /*Cherche dans les entités Category et Domaine grâce à la classe php Search*/
             'method' => 'GET',
             'crsf_protection' => false,
         ]);

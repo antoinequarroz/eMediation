@@ -14,46 +14,52 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class RegisterType extends AbstractType
 {
+    /*Crée le formulaire pour le système d'inscription*/
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
+        $builder /*Crée le formulaire*/
+
+            /*Intègre dans le formulaire les champs prénom*/
             ->add('prenom', TextType::class, [
-                'label' => 'Prénom',
+                'label' => 'Prénom', /*Label prénom*/
                 'attr' => [
                     'placeholder' => 'Votre prénom'
                 ]
             ])
+            /*Intègre dans le formulaire les champs nom*/
             ->add('nom', TextType::class, [
-                'label' => 'Nom',
+                'label' => 'Nom', /*Label nom*/
                 'attr' => [
                     'placeholder' => 'Votre nom'
                 ]
             ])
+            /*Intègre dans le formulaire les champs email*/
             ->add('email', EmailType::class, [
-                'label' => 'Email',
+                'label' => 'Email', /*Label email*/
                 'attr' => [
                     'placeholder' => 'Votre email'
                 ]
             ])
+            /*Intègre dans le formulaire les champs mot de passe et confirmation de mot de passe*/
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'invalid_message' => 'Le mot de passe et la confirmation doivent être indentique',
-                'label' => 'Mot de passe',
+                'label' => 'Mot de passe', /*Label mot de passe*/
                 'required' => true,
-                'first_options' => [ 'label' => 'Mot de passe',
+                'first_options' => [ 'label' => 'Mot de passe', /*Label mot de passe*/
                     'attr' => [
                         'placeholder' => 'Votre mot de passe'
                     ]
                 ],
-                'second_options' => [ 'label' => 'Confirmer votre mot de passe',
+                'second_options' => [ 'label' => 'Confirmer votre mot de passe', /*Label confirmer le mot de passe*/
                     'attr' => [
                         'placeholder' => 'Confirmer votre mot de passe'
                     ]
                 ],
             ])
-
+            /*Intègre dans le formulaire le bouton d'inscription*/
             ->add('submit', SubmitType::class, [
-                'label' => "S'inscrire"
+                'label' => "S'inscrire" /*Label du nom du bouton*/
             ])
         ;
     }

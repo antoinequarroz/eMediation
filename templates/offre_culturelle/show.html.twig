@@ -25,9 +25,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="plyr__video-embed" id="player">
-                        {{ offre.media|raw }}
-                    </div>
+                    {% if ('youtube' in offre.media)%}
+                        <div class="plyr__video-embed" id="player">
+                            <iframe width="560" height="315" src="{{ offre.media|raw }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    {% else %}
+                        <video id="player" playsinline controls data-poster="{{ offre.image }}">
+
+                            <source src="{{ offre.media|raw }}" type="video/mp4" />
+
+                        </video>
+                    {% endif %}
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
-{% extends 'base.html.twig' %}
-{% block navbar %}{% endblock %}
-{% block title %}Compte de {{ app.user.prenom }}{% endblock %}
+{% extends 'base.html.twig' %} <!-- extend le fichier twig base.index.twig -->
+{% block navbar %}{% endblock %} <!-- Intègre la barre de navigation dans le code -->
+{% block title %}Compte de {{ app.user.prenom }}{% endblock %} <!-- app.user.prenom ajoute le nom de l'utilisateur connecté -->
 
 {% block content %}
     <header class="bg-primary pt-9 pb-11 d-none d-md-block">
@@ -15,14 +15,14 @@
 
                     <!-- Text -->
                     <p class="font-size-lg text-white-75 mb-0">
-                        de <a class="text-reset" href="mailto:{{app.user.email}}">{{ app.user.prenom }}</a>
+                        de <a class="text-reset" href="mailto:{{app.user.email}}">{{ app.user.prenom }}</a> <!-- envoie un mail vers l'email de l'utilisateur connecté -->
                     </p>
 
                 </div>
                 <div class="col-auto">
 
                     <!-- Button -->
-                    <a href="{{ path('app_logout') }}">
+                    <a href="{{ path('app_logout') }}"> <!-- route de déconnexion -->
                         <button class="btn btn-sm btn-gray-300-20 shadow-dark-lg">
                             Log Out
                         </button>
@@ -52,17 +52,17 @@
                                 <!-- List -->
                                 <ul class="card-list list text-gray-700 mb-2">
                                     <li class="list-item active">
-                                        <a class="list-link text-reset" href="{{ path('account') }}">
+                                        <a class="list-link text-reset" href="{{ path('account') }}"> <!-- route du compte -->
                                             General
                                         </a>
                                     </li>
                                     <li class="list-item">
-                                        <a class="list-link text-reset" href="{{ path('account_password') }}">
+                                        <a class="list-link text-reset" href="{{ path('account_password') }}"> <!-- route de la modification du mot de passe -->
                                             Mot de passe
                                         </a>
                                     </li>
                                     <li class="list-item">
-                                        <a class="list-link text-reset" href="{{ path('admin') }}">
+                                        <a class="list-link text-reset" href="{{ path('admin') }}"> <!-- route vers l'admin -->
                                             Admin
                                         </a>
                                     </li>
@@ -96,7 +96,7 @@
                                         <!-- Name -->
                                         <div class="form-group">
                                             <h4>Prénom :</h4>
-                                            {{ app.user.prenom }}
+                                            {{ app.user.prenom }} <!-- prénom de l'utilisateur -->
                                         </div>
 
                                     </div>
@@ -105,7 +105,7 @@
                                         <!-- Email -->
                                         <div class="form-group">
                                             <h4>Email :</h4>
-                                            {{ app.user.email }}
+                                            {{ app.user.email }} <!-- email de l'utilisateur -->
                                         </div>
 
                                     </div>
@@ -115,7 +115,7 @@
                                         <!-- Name -->
                                         <div class="form-group">
                                             <h4>Nom :</h4>
-                                            {{ app.user.nom }}
+                                            {{ app.user.nom }} <!-- nom de l'utilisateur -->
                                         </div>
 
                                     </div>
@@ -126,7 +126,7 @@
                     </div>
                     <!-- Text -->
                     <p class="text-center mb-0">
-                        <small class="text-muted">Si vous voulez <a class="text-danger" href="{{path('admin')}}">supprimer votre compte</a>.</small>
+                        <small class="text-muted">Si vous voulez <a class="text-danger" href="{{path('admin')}}">supprimer votre compte</a>.</small> <!-- route vers l'admin pour supprimer le compte -->
                     </p>
 
                 </div>
