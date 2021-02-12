@@ -8,11 +8,6 @@ use App\Entity\Domains;
 class Search
 {
     /**
-     * @var $string
-     */
-    public $string = '';
-
-    /**
      * @var Category[]
      */
     public $categories = [];
