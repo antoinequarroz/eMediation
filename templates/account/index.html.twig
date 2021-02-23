@@ -1,6 +1,6 @@
-{% extends 'base.html.twig' %} <!-- extend le fichier twig base.index.twig -->
-{% block navbar %}{% endblock %} <!-- Intègre la barre de navigation dans le code -->
-{% block title %}Compte de {{ app.user.prenom }}{% endblock %} <!-- app.user.prenom ajoute le nom de l'utilisateur connecté -->
+{% extends 'base.html.twig' %}
+{% block navbar %}{% endblock %}
+{% block title %}Compte de {{ app.user.prenom }}{% endblock %}
 
 {% block content %}
     <header class="bg-primary pt-9 pb-11 d-none d-md-block">

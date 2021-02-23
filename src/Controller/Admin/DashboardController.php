@@ -20,6 +20,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DashboardController extends AbstractDashboardController
 {
+    /*Création de la route admin*/
     /**
      * @Route("/admin", name="admin")
      */
@@ -27,18 +28,20 @@ class DashboardController extends AbstractDashboardController
     {
         return parent::index();
     }
-
+    /*Fonction de configuration du tableau de bord*/
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('eMédiation');
+            ->setTitle('eMédiation'); /*Titre de l'admin*/
     }
+    /*Fonction de stylisation du tableau de bord*/
     public function configureAssets(): Assets
     {
         return Assets::new()
-            ->addCssFile('assets/css/admin.css');
+            ->addCssFile('assets/css/admin.css'); /*Fichier css pour le template admin*/
     }
 
+    /*Fonction pour les routes et ajouts des onglet de chaque entité*/
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linktoRoute('Accueil', 'fas fa-home', 'home');

@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Classe\Search;
 use App\Entity\Product;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -23,6 +24,7 @@ class ProductRepository extends ServiceEntityRepository
     /**
      * @return Product[]
      */
+
     public function findWithSearch(Search $search)
     {
         $query = $this
