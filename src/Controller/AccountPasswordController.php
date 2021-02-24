@@ -14,6 +14,11 @@ class AccountPasswordController extends AbstractController
 {
     private $entityManager;
 
+    /**
+     * AccountPasswordController constructor.
+     * @param EntityManagerInterface $entityManager
+     */
+
     public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
@@ -28,7 +33,6 @@ class AccountPasswordController extends AbstractController
      */
     public function index(Request $request, UserPasswordEncoderInterface $encoder): Response /* Gestion de modification de mot de passe*/
     {
-        $notification = null;
 
         $user = $this->getUser();
         $form = $this->createForm(ChangePasswordType::class, $user); /*Crée un formulaire pour le changement de mot de passe*/
@@ -44,16 +48,12 @@ class AccountPasswordController extends AbstractController
 
                 $user->setPassword($password); /*Change le mot de passe de l'utilisateur*/
                 $this->entityManager->flush(); /*Envoie le nouveau mot de passe crypté à la base de données*/
-                $notification = 'Votre mot de passe à bien été mis à jour'; /*Envoie un notification si le mot de passe à été modifié*/
-            } else{
-                $notification = "Votre mot de passe actuel n'est pas le bon"; /*Envoie un notification su le mot de passe n'a pas été modifié*/
             }
         }
 
         /*Retourne le contenu du controller dans la vue account/password.html.twig*/
         return $this->render('account/password.html.twig',[
             'form' => $form->createView(), /*Envoie le formulaire à la vue*/
-            'notification' => $notification /*Envoie les notifications à la vue*/
         ]);
     }
 }

@@ -39,7 +39,7 @@ class ChangePasswordType extends AbstractType
             ->add('new_password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'mapped' => false,
-                'invalid_message' => 'Le mot de passe et la confirmation doivent être indentique',
+                'invalid_message' => 'Mon nouveau mot de passe',
                 'label' => 'Nouveau mot de passe',
                 'required' => true,
                 'first_options' => [ 'label' => 'Nouveau mot de passe', /*Label nouveau mot de passe*/
