@@ -6,7 +6,6 @@ use App\Form\ChangePasswordType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -31,7 +30,7 @@ class AccountPasswordController extends AbstractController
     /**
      * @Route("/compte/mot-de-passe", name="account_password")
      */
-    public function index(Request $request, UserPasswordEncoderInterface $encoder): Response /* Gestion de modification de mot de passe*/
+    public function index(Request $request, UserPasswordEncoderInterface $encoder) /* Gestion de modification de mot de passe*/
     {
 
         $user = $this->getUser();
